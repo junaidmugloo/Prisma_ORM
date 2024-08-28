@@ -1,21 +1,18 @@
-# Enabling MongoDB Replica Set Locally
+Enabling MongoDB Replica Set Locally
+Step 1: Modify MongoDB Config File
+To enable replication, you need to adjust the replication settings in your MongoDB configuration file (mongod.conf or equivalent). Add the following lines:
 
-## Step 1: Modify MongoDB Config File
-
-To enable replication, you need to change the replication settings in your MongoDB configuration file (`mongod.conf` or equivalent).
-
-Add the following lines:
-
-```conf
+yaml
+Copy code
 replication:
   replSetName: "myReplicaSet"
 Step 2: Restart MongoDB
-After making the changes, restart your MongoDB instance for the new replication settings to take effect.
+After modifying the configuration file, restart your MongoDB instance for the new replication settings to take effect.
 
 Step 3: Initiate Replica Set in Mongo Shell
 Open your Mongo shell.
 
-Switch to your desired database (for example, from test to prisma):
+Switch to your desired database (e.g., from test to prisma):
 
 bash
 Copy code
@@ -30,8 +27,9 @@ prisma> rs.initiate({
   members: [{ _id: 0, host: "127.0.0.1:27017" }]
 })
 Step 4: Verify Replica Set Status
-Check that the replica set has been initiated correctly. You should see:
+Check if the replica set has been initiated successfully. The expected output is:
 
 bash
 Copy code
 { ok: 1 }
+For more information, visit Prisma Documentation.
