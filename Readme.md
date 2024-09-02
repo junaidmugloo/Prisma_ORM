@@ -172,7 +172,7 @@ test> use prisma
 switched to db prisma
 ```
 
-Initiate the replica set by running the following command:
+Initiate the replica set by running the following command & make sure follow indentation:
 
 ```bash
 prisma> rs.initiate({
